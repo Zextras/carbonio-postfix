@@ -74,7 +74,7 @@ lmtp      unix  -       -       n       -       -       lmtp
 anvil     unix  -       -       n       -       1       anvil
 scache	  unix	-	-	n	-	1	scache
 %%uncomment VAR:zimbraMtaEnableSmtpdPolicyd%%policy    unix  -       n       n       -       0       spawn
-%%uncomment VAR:zimbraMtaEnableSmtpdPolicyd%%	user=zimbra argv=/usr/bin/perl /opt/zimbra/libexec/zmpostfixpolicyd
+%%uncomment VAR:zimbraMtaEnableSmtpdPolicyd%%	user=zimbra argv=/usr/bin/perl /opt/zextras/libexec/zmpostfixpolicyd
 #
 # ====================================================================
 # Interfaces to non-Postfix software. Be sure to examine the manual
@@ -175,7 +175,7 @@ smtp-amavis unix -      -       n       -       %%zimbraAmavisMaxServers%%  smtp
 #
 [%%zimbraLocalBindAddress%%]:10027 inet n   n       n       -       -       spawn
 	-o smtp_send_xforward_command=yes
-	user=zimbra argv=/opt/zimbra/libexec/postjournal
+	user=zimbra argv=/opt/zextras/libexec/postjournal
 
 [%%zimbraLocalBindAddress%%]:10028 inet n  -       n       -       -  smtpd
 %%uncomment SERVICE:opendkim%%	-o content_filter=scan:[%%zimbraLocalBindAddress%%]:10030
